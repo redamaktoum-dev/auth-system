@@ -29,7 +29,7 @@ app.use(session({
 	
 	cookie: {
 		secure: String(process.env.NODE_ENV) === "production",
-		httpOnly: String(process.env.SESSION_HTTPONLT) === "true",
+		httpOnly: String(process.env.SESSION_HTTPONLY) === "true",
 		maxAge: Number(process.env.SESSION_MAXAGE)
 	}
 }))
