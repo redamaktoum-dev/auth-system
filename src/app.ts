@@ -3,6 +3,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import router from "@/features";
+import { errorHandler } from "./middlewares/errorHandler";
 
 // Session imports
 import session from "express-session";
@@ -54,6 +55,9 @@ app.get("/protected", requireAuth, (req, res) => {
     user: req.user || null
   })
 })
+
+// Last middleware to catch all errors
+app.use(errorHandler);
 
 // Export app
 export default app;
