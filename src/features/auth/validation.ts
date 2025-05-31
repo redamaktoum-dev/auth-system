@@ -3,7 +3,7 @@ import { z } from "zod";
 export const loginSchema = z.object({
   identifier: z
     .string({ required_error: "Username or Email is required." })
-    .trim()
+    .trim().toLowerCase()
     .min(3, { message: "Username or Email must be at least 3 characters long." })
     .max(50, { message: "Username or Email must be no more than 50 characters long." }),
   password: z
